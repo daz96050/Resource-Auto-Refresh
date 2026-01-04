@@ -1,0 +1,9 @@
+{
+  "name": "sventex-resource-autorefresh",
+  "version": "0.1.5",
+  "title": "SvenTeX Resource Autorefresh",
+  "author": "SvenTec",
+  "description": "Resources will automatically be refreshed when depleted.",
+  "factorio_version": "2.0",
+  "dependencies": ["base >= 2.0"]
+ }
