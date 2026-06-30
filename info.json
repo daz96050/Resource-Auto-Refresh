@@ -1,9 +1,11 @@
 {
   "name": "sventex-resource-autorefresh-forked",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "title": "SvenTeX Resource Autorefresh (forked)",
   "author": "daz96050",
   "description": "Resources will automatically be refreshed when depleted.\nThis does not use infinite yields like other resource mods, it simply adds additional resources once a patch is depleted",
-  "factorio_version": "2.0",
-  "dependencies": ["base >= 2.0"]
- }
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base >= 2.1"
+  ]
+}

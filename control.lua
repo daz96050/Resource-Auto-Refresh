@@ -36,7 +36,20 @@ script.on_event(defines.events.on_resource_depleted, function(event)
 	if storage.generator == nil then
 		storage.generator = game.create_random_generator()
   	end
-	
+
+	-- Infinite resources (e.g. crude oil) are not removed on depletion; they
+	-- decay to their minimum yield and the entity stays valid. Restore the
+	-- amount in place instead of creating a new entity, and use the prototype's
+	-- normal yield as the baseline since the finite-patch math below treats
+	-- "amount" as an ore count rather than a yield value.
+	if entity.prototype.infinite_resource then
+		local target = entity.initial_amount or entity.prototype.normal_resource_amount
+		local minimum = entity.prototype.minimum_resource_amount or 0
+		local adjustment = storage.generator(75, 125) / 100
+		entity.amount = math.max(minimum, math.floor(target * adjustment))
+		return
+	end
+
 	local surface = entity.surface
 	local x = entity.position.x
 	local y = entity.position.y
